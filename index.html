@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Canada at Risk: Debt, Inflation &amp; the Road Ahead</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Clear, data-informed overview of Canada's fiscal, monetary, and structural risks, with scenario forecasts based on historical patterns from other countries.">
+    <style>
+        :root {
+            --bg: #050816;
+            --bg-soft: #0f172a;
+            --accent: #22c55e;
+            --accent-soft: rgba(34,197,94,0.12);
+            --accent-alt: #38bdf8;
+            --text: #e5e7eb;
+            --muted: #9ca3af;
+            --danger: #f97316;
+            --critical: #ef4444;
+            --border: rgba(148,163,253,0.15);
+            --radius-lg: 18px;
+            --radius-md: 12px;
+            --radius-sm: 8px;
+            --shadow-soft: 0 18px 45px rgba(15,23,42,0.75);
+            --font-sans: system-ui, -apple-system, BlinkMacSystemFont, -apple-system, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: var(--font-sans);
+            background: radial-gradient(circle at top, #111827 0, #020817 40%, #020617 100%);
+            color: var(--text);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .page {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 24px 16px 40px;
+        }
+
+        header {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 28px;
+        }
+
+        .logo-lockup {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-pill {
+            width: 32px;
+            height: 32px;
+            border-radius: 999px;
+            background: radial-gradient(circle at 30% 0, var(--accent-alt), var(--accent));
+            box-shadow: 0 0 18px rgba(56,189,248,0.4);
+        }
+
+        .logo-text {
+            font-size: 14px;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        h1 {
+            font-size: clamp(26px, 4vw, 36px);
+            margin: 0;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+        }
+
+        .subtitle {
+            margin: 0;
+            font-size: 14px;
+            color: var(--muted);
+            max-width: 720px;
+        }
+
+        .tag-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 4px;
+        }
+
+        .tag {
+            padding: 4px 9px;
+            border-radius: 999px;
+            border: 1px solid rgba(148,163,253,0.2);
+            font-size: 10px;
+            color: var(--muted);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .tag span.dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 999px;
+            background: var(--accent);
+        }
+
+        main {
+            display: grid;
+            grid-template-columns: minmax(0, 2fr) minmax(260px, 1fr);
+            gap: 18px;
+        }
+
+        @media (max-width: 840px) {
+            main {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .panel {
+            background: radial-gradient(circle at top left, rgba(56,189,248,0.08), transparent),
+                        radial-gradient(circle at top right, rgba(34,197,94,0.05), transparent),
+                        var(--bg-soft);
+            border-radius: var(--radius-lg);
+            padding: 16px 14px 14px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-soft);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .panel h2 {
+            font-size: 16px;
+            margin: 0 0 6px;
+            font-weight: 600;
+        }
+
+        .panel p {
+            font-size: 13px;
+            line-height: 1.65;
+            margin: 0 0 6px;
+            color: var(--muted);
+        }
+
+        .pill-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 3px 8px;
+            border-radius: 999px;
+            font-size: 9px;
+            color: var(--accent-alt);
+            background: rgba(15,23,42,0.9);
+            border: 1px solid rgba(148,163,253,0.25);
+            margin-bottom: 4px;
+        }
+
+        .pill-label .tiny-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 999px;
+            background: var(--accent);
+        }
+
+        ul, ol {
+            padding-left: 18px;
+            margin: 4px 0 6px;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        li {
+            margin-bottom: 2px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 10px;
+            margin-top: 6px;
+        }
+
+        @media (max-width: 640px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .metric-card {
+            padding: 8px 9px;
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(148,163,253,0.18);
+            background: rgba(9,9,18,0.98);
+            display: flex;
+            flex-direction: column;
+            gap: 1px;
+        }
+
+        .metric-label {
+            font-size: 9px;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+        }
+
+        .metric-value {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .metric-note {
+            font-size: 9px;
+            color: var(--muted);
+        }
+
+        .metric-critical {
+            color: var(--critical);
+        }
+
+        .metric-warn {
+            color: var(--danger);
+        }
+
+        .scenario-note {
+            font-size: 10px;
+            color: var(--muted);
+            margin-top: 4px;
+        }
+
+        .timeline {
+            margin-top: 4px;
+            border-radius: var(--radius-md);
+            padding: 6px 8px;
+            background: radial-gradient(circle at top, rgba(15,23,42,0.9), #020817);
+            border: 1px solid rgba(148,163,253,0.18);
+            font-size: 11px;
+            color: var(--muted);
+        }
+
+        .timeline h3 {
+            margin: 0 0 4px;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--accent-alt);
+        }
+
+        .timeline-row {
+            display: grid;
+            grid-template-columns: 64px minmax(0, 1fr);
+            column-gap: 6px;
+            row-gap: 2px;
+            align-items: flex-start;
+        }
+
+        .timeline-year {
+            font-size: 10px;
+            font-weight: 600;
+            color: var(--accent-alt);
+        }
+
+        .timeline-text {
+            font-size: 10px;
+            line-height: 1.5;
+        }
+
+        .compare-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 4px;
+            font-size: 9px;
+            color: var(--muted);
+        }
+
+        .compare-table th,
+        .compare-table td {
+            padding: 4px 5px;
+            border: 1px solid rgba(75,85,99,0.6);
+        }
+
+        .compare-table th {
+            background: rgba(15,23,42,0.98);
+            font-weight: 600;
+            color: var(--accent-alt);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        .scenario-label {
+            font-size: 9px;
+            padding: 2px 6px;
+            border-radius: 999px;
+            background: var(--accent-soft);
+            color: var(--accent);
+            display: inline-block;
+            margin-bottom: 2px;
+        }
+
+        .fact-label {
+            font-size: 9px;
+            padding: 2px 6px;
+            border-radius: 999px;
+            background: rgba(148,163,253,0.1);
+            color: var(--accent-alt);
+            display: inline-block;
+            margin-bottom: 2px;
+        }
+
+        .warn-box {
+            margin-top: 6px;
+            padding: 7px 8px;
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(248,250,252,0.12);
+            background: rgba(15,23,42,0.98);
+            font-size: 10px;
+            color: var(--muted);
+            display: flex;
+            gap: 8px;
+        }
+
+        .warn-flag {
+            width: 18px;
+            height: 18px;
+            border-radius: 6px;
+            background: radial-gradient(circle at 35% 0, var(--danger), var(--critical));
+            box-shadow: 0 0 12px rgba(248,113,22,0.6);
+            flex-shrink: 0;
+        }
+
+        .pill-ok {
+            color: var(--accent);
+        }
+
+        a {
+            color: var(--accent-alt);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            margin-top: 26px;
+            font-size: 9px;
+            color: var(--muted);
+            text-align: left;
+        }
+
+        .memo-banner {
+            margin-bottom: 10px;
+            padding: 8px 10px;
+            border-radius: var(--radius-md);
+            background: rgba(34,197,94,0.06);
+            border: 1px solid rgba(34,197,94,0.4);
+            font-size: 10px;
+            color: var(--accent);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .memo-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 999px;
+            background: var(--accent);
+            box-shadow: 0 0 10px rgba(34,197,94,0.7);
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <div class="memo-banner">
+        <div class="memo-dot"></div>
+        <div>This analysis and scenario forecast is a public prediction published in 2025.  It will just play out.  It will not be updated.</div>
+    </div>
+    <header>
+        <div class="logo-lockup">
+            <div class="logo-pill"></div>
+            <div>
+                <div class="logo-text">Canadian Hyperinflation Prediction</div>
+            </div>
+        </div>
+        <h1>Canada at Risk: Debt, Inflation &amp; the Road Ahead</h1>
+        <p class="subtitle">
+            A clear, no-nonsense walkthrough of how Canada’s fiscal, monetary, and structural pressures are building —
+            what’s real, what’s exaggerated, and how today’s choices shape tomorrow’s outcomes.
+        </p>
+        <div class="tag-row">
+            <div class="tag"><span class="dot"></span> Evidence first</div>
+            <div class="tag"><span class="dot"></span> Scenario-based forecasting</div>
+            <div class="tag"><span class="dot"></span> Lessons from Argentina, Greece, Turkey, UK, Japan</div>
+        </div>
+    </header>
+
+    <main>
+        <!-- LEFT: Narrative & Analysis -->
+        <section class="panel">
+            <div class="pill-label">
+                <span class="tiny-dot"></span>
+                Section 1 &mdash; Where Canada Actually Stands
+            </div>
+            <h2>1. The Setup: From “Safe” to Stretched</h2>
+            <p>
+                Since 2008 Canada has quietly traded balance-sheet strength for comfort:
+                crisis-era stimulus never fully unwound, households levered into housing,
+                and cheap money morphed into an assumption that low rates were permanent.
+            </p>
+            <div class="grid-2">
+                <div class="metric-card">
+                    <div class="metric-label">Public Debt</div>
+                    <div class="metric-value metric-warn">High &amp; rising</div>
+                    <div class="metric-note">
+                        Pandemic shock pushed total public debt dramatically higher.
+                        Brief improvement, now drifting up again with renewed deficits.
+                    </div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Household Leverage</div>
+                    <div class="metric-value metric-critical">World-class risky</div>
+                    <div class="metric-note">
+                        Debt well above peers, heavily tied to housing; small rate moves hit hard.
+                    </div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Housing</div>
+                    <div class="metric-value metric-warn">Overvalued core</div>
+                    <div class="metric-note">
+                        Toronto/Vancouver flagged globally; affordability broken, stability fragile.
+                    </div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Productivity</div>
+                    <div class="metric-value">Weak trend</div>
+                    <div class="metric-note">
+                        Chronic underinvestment keeps real growth low &mdash; limits room for error.
+                    </div>
+                </div>
+            </div>
+            <p>
+                The risk is not a single “bad number”; it’s the mix:
+                governments comfortable with deficits, a central bank pressured from both sides,
+                overleveraged households, and growth that can’t keep up if rates stay honest.
+            </p>
+        </section>
+
+        <!-- RIGHT: Quick Facts & Signals -->
+        <aside class="panel">
+            <div class="pill-label">
+                <span class="tiny-dot"></span>
+                Snapshot &mdash; Signals to Watch
+            </div>
+            <h2>Key Pressure Points</h2>
+            <ul>
+                <li><strong>Persistent deficits:</strong> federal + provincial shortfalls even outside deep recessions.</li>
+                <li><strong>Interest costs:</strong> growing slice of budgets, squeezing health, infrastructure, services.</li>
+                <li><strong>Household debt:</strong> among the highest in advanced economies, tied to variable-rate mortgages.</li>
+                <li><strong>Housing dependence:</strong> construction + real estate embedded into GDP, tax base, politics.</li>
+                <li><strong>Weak productivity:</strong> low business investment, heavy regulation, lagging innovation.</li>
+                <li><strong>CAD sensitivity:</strong> reliant on confidence, commodities, and policy credibility.</li>
+            </ul>
+            <div class="warn-box">
+                <div class="warn-flag"></div>
+                <div>
+                    If markets ever doubt Canada’s willingness to control deficits and inflation,
+                    the correction will show up first in the currency and bond yields, not in speeches.
+                </div>
+            </div>
+        </aside>
+
+        <!-- LEFT: Feedback Loops -->
+        <section class="panel">
+            <div class="pill-label">
+                <span class="tiny-dot"></span>
+                Section 2 &mdash; How Systems Break
+            </div>
+            <h2>2. The Feedback Loops That Matter</h2>
+            <p>
+                Crises don’t start with hyperinflation. They start with loops policymakers fail to break:
+            </p>
+            <ul>
+                <li><strong>Deficit → Debt → Interest → Bigger deficit:</strong>
+                    rising rates lift interest costs; governments borrow more to pay interest.</li>
+                <li><strong>Debt → Central Bank Pressure:</strong>
+                    the more painful honest rates get, the stronger the temptation to “lean dovish”.</li>
+                <li><strong>Easy money → Housing &amp; debt boom:</strong>
+                    asset inflation masks stagnating real wages and weak productivity.</li>
+                <li><strong>Inflation → Currency slide → More inflation:</strong>
+                    once investors doubt discipline, FX and prices move together.</li>
+                <li><strong>Household fragility → Political fear:</strong>
+                    fear of defaults pushes leaders to choose inflation over visible austerity.</li>
+            </ul>
+            <p>
+                Countries that lost control (Argentina, Turkey) rode these loops too long.
+                Countries that pulled back (UK after its bond revolt, 1990s Canada)
+                took the pain early and rebuilt credibility.
+            </p>
+        </section>
+
+        <!-- RIGHT: Comparisons -->
+        <aside class="panel">
+            <div class="pill-label">
+                <span class="tiny-dot"></span>
+                Section 3 &mdash; What Others Teach Us
+            </div>
+            <h2>Comparative Lens</h2>
+            <table class="compare-table">
+                <thead>
+                <tr>
+                    <th>Case</th>
+                    <th>Pattern</th>
+                    <th>Relevance</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Argentina</td>
+                    <td>Chronic deficits + money printing → repeated inflation waves → hyperinflation.</td>
+                    <td>Warning of what happens if fiscal &amp; monetary discipline both fold.</td>
+                </tr>
+                <tr>
+                    <td>Greece</td>
+                    <td>High debt in shared currency → market revolt → harsh external austerity.</td>
+                    <td>Shows how fast confidence can vanish when numbers stop adding up.</td>
+                </tr>
+                <tr>
+                    <td>Turkey</td>
+                    <td>Political capture of the central bank → currency crash → 80%+ inflation.</td>
+                    <td>Lesson: protect central bank independence or pay dearly.</td>
+                </tr>
+                <tr>
+                    <td>UK (mini-budget)</td>
+                    <td>Unfunded promises → bond spike → forced U-turn in days.</td>
+                    <td>Proof that even G7 states meet hard limits.</td>
+                </tr>
+                <tr>
+                    <td>Japan</td>
+                    <td>Ultra-high debt, low rates, domestic savings cushion.</td>
+                    <td>Outlier; Canada does not share its structural safety net.</td>
+                </tr>
+                </tbody>
+            </table>
+            <p class="scenario-note">
+                Canada is not any of these yet, but shares enough DNA that
+                ignoring the parallels would be reckless.
+            </p>
+        </aside>
+
+        <!-- LEFT: Timeline Scenario -->
+        <section class="panel">
+            <div class="pill-label">
+                <span class="tiny-dot"></span>
+                Section 4 &mdash; If Nothing Changes (Scenario)
+            </div>
+            <h2>4. Scenario Timeline: From Strain to Break</h2>
+            <span class="scenario-label">Forward-looking &mdash; illustrative, not a prediction</span>
+            <div class="timeline">
+                <h3>Phase 1 &mdash; Normalizing Pain (Now–2026)</h3>
+                <div class="timeline-row">
+                    <div class="timeline-year">2025–26</div>
+                    <div class="timeline-text">
+                        Rolling mortgage renewals, sticky deficits, and slower growth keep stress elevated.
+                        Institutions still credible, but room for error shrinks.
+                    </div>
+                </div>
+            </div>
+            <div class="timeline">
+                <h3>Phase 2 &mdash; Credibility Drift (2027–2028)</h3>
+                <div class="timeline-row">
+                    <div class="timeline-year">2027</div>
+                    <div class="timeline-text">
+                        Inflation edges up again; rate moves lag; investors begin to price a risk premium on Canadian debt.
+                    </div>
+                </div>
+                <div class="timeline-row">
+                    <div class="timeline-year">2028</div>
+                    <div class="timeline-text">
+                        Higher yields + higher interest costs + weak growth = visible debt spiral risk.
+                        Political pressure on the central bank intensifies.
+                    </div>
+                </div>
+            </div>
+            <div class="timeline">
+                <h3>Phase 3 &mdash; Slide or Reset (2029–2030+)</h3>
+                <div class="timeline-row">
+                    <div class="timeline-year">2029</div>
+                    <div class="timeline-text">
+                        If discipline fails: currency selloff, double-digit inflation, capital outflows,
+                        and talk of capital controls enter mainstream debate.
+                    </div>
+                </div>
+                <div class="timeline-row">
+                    <div class="timeline-year">2030+</div>
+                    <div class="timeline-text">
+                        Extreme path: sustained monetization of deficits tips into true hyperinflation.
+                        Sensible path: aggressive consolidation, hard-money stance, painful but stabilizing reset.
+                    </div>
+                </div>
+            </div>
+            <p class="scenario-note">
+                The dates and levels here are deliberately conservative stress-tests, not guarantees.
+                The point: the longer Canada postpones adjustment, the steeper the eventual correction.
+            </p>
+        </section>
+
+        <!-- RIGHT: Actionable Reading of the Risk -->
+        <aside class="panel">
+            <div class="pill-label">
+                <span class="tiny-dot"></span>
+                Section 5 &mdash; How to Read This
+            </div>
+            <h2>How Serious Is This?</h2>
+            <ul>
+                <li><span class="pill-ok">Today:</span> Institutions function, inflation is controllable, crisis is avoidable.</li>
+                <li><strong>Medium term:</strong> Structural choices on spending, energy, regulation, and BoC independence decide the slope.</li>
+                <li><strong>Danger zone:</strong> any move toward normalizing permanent deficits + political pressure on the BoC.</li>
+                <li><strong>Red line:</strong> open monetization of deficits and toleration of chronic high inflation.</li>
+            </ul>
+            <p>
+                This site doesn’t predict collapse. It maps the mechanics so people can recognize
+                when normal risk turns into something systemic.
+            </p>
+        </aside>
+    </main>
+
+    <footer>
+        Built from public macro data, historical case studies, and scenario analysis.
+        Treat the backward-looking numbers as facts to verify; treat the forward path as conditional:
+        change the policies, change the outcome.
+    </footer>
+</div>
+</body>
+</html>
